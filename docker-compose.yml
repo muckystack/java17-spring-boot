@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: postgres:15.2
+    container_name: best_travel_db
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./db/sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./db/sql/data.sql:/docker-entrypoint-initdb.d/data.sql
+    ports:
+      - "${DB_PORT}:5432"
+
+  app:
+    build: .
+    container_name: best_travel_app
+    depends_on:
+      - db
+    ports:
+      - "${APP_PORT}:8080"
+    environment:
+      DB_URL: ${DB_URL}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - .env

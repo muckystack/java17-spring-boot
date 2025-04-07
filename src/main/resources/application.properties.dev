@@ -1,0 +1,33 @@
+# Nombre de la aplicaci�n, �til en logs y contextos de Spring
+spring.application.name=bes_travel
+
+# URL de conexi�n a la base de datos PostgreSQL con el formato JDBC correcto
+spring.datasource.url=jdbc:postgresql://localhost:5432/best_travel
+
+# Usuario de la base de datos
+spring.datasource.username=alejandro
+
+# Contrase�a del usuario de la base de datos
+spring.datasource.password=debuggeandoideas
+
+# Tiempo m�ximo de espera (en milisegundos) para obtener una conexi�n del pool
+spring.datasource.hikari.connection-timeout=20000
+
+# N�mero m�ximo de conexiones simult�neas en el pool de HikariCP
+spring.datasource.hikari.maximum-pool-size=5
+
+# Configura Hibernate para crear o actualizar autom�ticamente el esquema de la base de datos
+spring.jpa.hibernate.ddl-auto=update
+# ? Opciones: `none`, `create`, `create-drop`, `update`, `validate`
+
+# Dialecto espec�fico de Hibernate para PostgreSQL (traduce las consultas SQL correctamente)
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+# Muestra las consultas SQL ejecutadas en consola
+spring.jpa.show-sql=true
+
+# Nivel de log para mostrar las consultas SQL de Hibernate
+logging.level.org.hibernate.SQL=DEBUG
+
+# Nivel de log para mostrar los par�metros que se enlazan en las consultas
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE

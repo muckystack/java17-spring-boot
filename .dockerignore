@@ -1,0 +1,28 @@
+# Ignora directorios y archivos generados por el sistema
+**/.git
+**/.github
+**/.idea
+**/.vscode
+**/.DS_Store
+
+# Ignora los directorios y archivos de dependencias de Maven y Node.js
+target/
+node_modules/
+
+# Ignora archivos específicos de entornos locales
+.env
+*.log
+
+# Ignora archivos generados por el compilador
+*.class
+*.jar
+*.war
+
+# Ignora archivos temporales y archivos de compilación
+*.tmp
+*.bak
+*.swp
+
+# Ignora archivos de configuración específicos del sistema operativo
+Thumbs.db
+ehthumbs.db
